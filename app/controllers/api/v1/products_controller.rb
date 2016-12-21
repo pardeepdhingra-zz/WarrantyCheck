@@ -11,7 +11,7 @@ module Api
       end
 
       def create
-        render json: current_user.products.create(product_params)
+        render json: current_user.products.create!(product_params)
       end
 
       def update

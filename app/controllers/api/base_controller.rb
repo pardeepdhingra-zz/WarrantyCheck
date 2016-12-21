@@ -9,4 +9,5 @@ class Api::BaseController < ApplicationController
     params['uid']  ||= request.headers['uid']
     params['client'] ||= request.headers['client']
   end
+
 end
