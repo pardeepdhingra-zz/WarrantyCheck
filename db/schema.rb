@@ -11,18 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161219141827) do
+ActiveRecord::Schema.define(version: 20161221094010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "products", force: :cascade do |t|
-    t.string   "name"
     t.integer  "owner_id"
+    t.string   "item_id",              null: false
+    t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "product_type"
+    t.string   "brand"
+    t.date     "date_of_purchase",     null: false
+    t.date     "warranty_expire_date", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.datetime "deleted_at"
   end
+
+  add_index "products", ["brand", "product_type"], name: "index_products_on_brand_and_product_type", using: :btree
+  add_index "products", ["deleted_at"], name: "index_products_on_deleted_at", using: :btree
+  add_index "products", ["item_id"], name: "index_products_on_item_id", using: :btree
+  add_index "products", ["name", "brand"], name: "index_products_on_name_and_brand", using: :btree
+  add_index "products", ["name", "product_type"], name: "index_products_on_name_and_product_type", using: :btree
+  add_index "products", ["name"], name: "index_products_on_name", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false

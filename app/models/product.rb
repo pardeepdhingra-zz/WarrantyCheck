@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
-  validates :name, presence: true
+  acts_as_paranoid
+
+  validates :item_id, :name, presence: true
   belongs_to :owner, foreign_key: :owner_id
 end

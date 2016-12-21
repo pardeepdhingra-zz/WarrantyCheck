@@ -22,3 +22,4 @@ end
 gem 'devise'
 gem 'devise_token_auth'
 gem 'omniauth'
+gem 'paranoia', '~> 2.2'

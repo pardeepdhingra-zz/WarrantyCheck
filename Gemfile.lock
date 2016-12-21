@@ -78,6 +78,8 @@ GEM
       hashie (>= 1.2, < 4)
       rack (>= 1.0, < 3)
     orm_adapter (0.5.0)
+    paranoia (2.2.0)
+      activerecord (>= 4.0, < 5.1)
     pg (0.19.0)
     rack (1.6.5)
     rack-test (0.6.3)
@@ -143,6 +145,7 @@ DEPENDENCIES
   devise_token_auth
   jbuilder (~> 2.0)
   omniauth
+  paranoia (~> 2.2)
   pg (~> 0.15)
   rails (= 4.2.6)
   sdoc (~> 0.4.0)
