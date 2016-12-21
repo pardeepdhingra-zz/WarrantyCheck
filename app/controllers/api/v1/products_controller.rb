@@ -24,6 +24,11 @@ module Api
       end
 
       def search
+        if params[:term].present? && !params[:term].blank?
+          render json: Product.search(params[:term])
+        elsif params[:item_id].present?  && !params[:item_id].blank?
+          render json: Product.search_by_item_id(params[:item_id])
+        end
       end
 
       private
