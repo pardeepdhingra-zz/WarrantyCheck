@@ -15,7 +15,8 @@ module Api
       end
 
       def update
-        render json: @product.update_attributes(product_params)
+        @product.update_attributes(product_params)
+        render json: @product
       end
 
       def destroy
