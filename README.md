@@ -41,5 +41,5 @@ $ rails s -p <port>
 
 For production environments...
 ```sh
-$ rails s -p <port> --RAILS_ENV=production
+$ rails s -p <port> -e production
 ```
