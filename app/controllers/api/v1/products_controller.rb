@@ -2,8 +2,9 @@ module Api
   module V1
     class ProductsController < Api::BaseController
       before_action :find_product, only: [:show, :update, :destroy]
+
       def index
-        render json: current_user.products
+        render json: current_user.products.paginate(page: params[:page], per_page: params[:per_page])
       end
 
       def show
