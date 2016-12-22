@@ -5,8 +5,8 @@ class Product < ActiveRecord::Base
 
   validates :item_id, :name, presence: true
   validates :item_id, uniqueness: true
+  validates :status, inclusion: { in: statuses.keys }
   belongs_to :owner, foreign_key: :owner_id
-
   before_save :check_warranty
 
   def check_warranty
@@ -18,7 +18,7 @@ class Product < ActiveRecord::Base
   end
 
   def self.update_warranty_status
-    Product.where('status = ? and warranty_expire_date < ?', 0, Date.today)
+    Product.where('status = ? and warranty_expire_date < ?', statuses[:under_warranty], Date.today)
            .update_all(status: :warranty_expired)
   end
 
