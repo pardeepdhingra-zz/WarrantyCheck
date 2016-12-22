@@ -17,6 +17,11 @@ class Product < ActiveRecord::Base
     end
   end
 
+  def self.update_warranty_status
+    Product.where('status = ? and warranty_expire_date < ?', 0, Date.today)
+           .update_all(status: :warranty_expired)
+  end
+
   def self.search(term)
     wild_card_term = "%#{term}%"
     where("name ilike :search_term

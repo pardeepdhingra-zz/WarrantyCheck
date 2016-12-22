@@ -39,6 +39,7 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  config.action_mailer.preview_path = "#{Rails.root}/lib/mailer_previews"
   config.action_mailer.default_url_options = { :host => 'your-dev-host.dev' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :address => 'your-dev-host.dev', :port => 1025 }

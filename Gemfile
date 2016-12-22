@@ -24,3 +24,4 @@ gem 'devise_token_auth'
 gem 'omniauth'
 gem 'paranoia', '~> 2.2'
 gem 'will_paginate', '~> 3.1.0'
+gem 'whenever', require: false
