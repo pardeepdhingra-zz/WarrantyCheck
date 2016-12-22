@@ -7,12 +7,12 @@ You can also:
   - It notifies user about the products whose warranty about to expire
 
 Technology:
-* [Ruby on Rails] - Backend API for web apps!
-* [Postgresql] - Database to store product details and user authentication details
-* [Devise] - For user registration and Authentication
-* [Whenever] - For Scheduling Job
+* [Ruby on Rails](http://rubyonrails.org/) - Backend API for web apps!
+* [Postgresql](https://www.postgresql.org/) - Database to store product details and user authentication details
+* [Devise](https://github.com/lynndylanhurley/devise_token_auth) - For user registration and Authentication
+* [Whenever](https://github.com/javan/whenever) - For Scheduling Job
 
-And of course Warranty Check itself is open source with a [public repository][WarrantyCheck]
+And of course Warranty Check itself is open source with a **public repository**  [WarrantyCheck](https://github.com/railites/WarrantyCheck)
  on GitHub.
 
 ### Installation
