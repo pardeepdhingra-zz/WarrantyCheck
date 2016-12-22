@@ -1,0 +1,288 @@
+{
+	"id": "9a7f6515-5c0c-bd71-486b-9ba6d575827f",
+	"name": "WarrantyCheck",
+	"description": "",
+	"order": [
+		"70a38046-4440-fee3-997d-aeb5e5c9cf62",
+		"afb8d807-4d67-6fbc-2fe0-5801784eb535",
+		"a09e8ca8-acca-bb0b-5cb9-2e855b89fcea",
+		"5266c17a-ea11-23d8-25b6-b3665b3ac093",
+		"50f893b8-81f9-ed74-36bd-9f141eae972b",
+		"e792703d-68ab-4c8c-2cae-f6976cedeb0f",
+		"ed5e2f08-ce4d-ace1-3bc9-975005ea7127",
+		"c1a02eca-32f3-bd12-3210-19ea94ce2002",
+		"9fd51691-3343-418a-b5ad-3fa2bc5e4a1f"
+	],
+	"folders": [],
+	"timestamp": 1482247066610,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "50f893b8-81f9-ed74-36bd-9f141eae972b",
+			"headers": "",
+			"url": "http://{{host}}:{{port}}/api/user",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "email",
+					"value": "test@tester.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "12345678",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1482314150921,
+			"name": "Register User",
+			"description": "",
+			"collectionId": "9a7f6515-5c0c-bd71-486b-9ba6d575827f",
+			"responses": []
+		},
+		{
+			"id": "5266c17a-ea11-23d8-25b6-b3665b3ac093",
+			"headers": "access-token: {{access-token}}\nuid: {{uid}}\nclient: {{client}}\n",
+			"url": "http://{{host}}:{{port}}/api/v1/products/1",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1482314600702,
+			"name": "Product",
+			"description": "",
+			"collectionId": "9a7f6515-5c0c-bd71-486b-9ba6d575827f",
+			"responses": []
+		},
+		{
+			"id": "70a38046-4440-fee3-997d-aeb5e5c9cf62",
+			"headers": "",
+			"url": "http://{{host}}:{{port}}/api/user/sign_in?email=test@tester.com&password=12345678",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": null,
+			"dataMode": "params",
+			"tests": "\npostman.setEnvironmentVariable(\"access-token\", postman.getResponseHeader('access-token'))\npostman.setEnvironmentVariable(\"client\", postman.getResponseHeader('client'))\npostman.setEnvironmentVariable(\"uid\", postman.getResponseHeader('uid'))",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1482315246457,
+			"name": "Login",
+			"description": "",
+			"collectionId": "9a7f6515-5c0c-bd71-486b-9ba6d575827f",
+			"responses": []
+		},
+		{
+			"id": "9fd51691-3343-418a-b5ad-3fa2bc5e4a1f",
+			"headers": "access-token: {{access-token}}\nuid: {{uid}}\nclient: {{client}}\n",
+			"url": "http://{{host}}:{{port}}/api/v1/search?term=led",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1482322601182,
+			"name": "Search copy",
+			"description": "",
+			"collectionId": "9a7f6515-5c0c-bd71-486b-9ba6d575827f",
+			"responses": []
+		},
+		{
+			"id": "a09e8ca8-acca-bb0b-5cb9-2e855b89fcea",
+			"headers": "access-token: {{access-token}}\nclient: {{client}}\nuid: {{uid}}\n",
+			"url": "http://{{host}}:{{port}}/api/v1/products",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "product[name]",
+					"value": "Syska LED",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "product[description]",
+					"value": "LED bulb used for washroom",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "product[brand]",
+					"value": "syska",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "product[product_type]",
+					"value": "led bulb",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "product[date_of_purchase]",
+					"value": "21-12-2016",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "product[warranty_expire_date]",
+					"value": "20-12-2017",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "product[item_id]",
+					"value": "768674342323431",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1482314568081,
+			"name": "Create Product",
+			"description": "",
+			"collectionId": "9a7f6515-5c0c-bd71-486b-9ba6d575827f",
+			"responses": []
+		},
+		{
+			"id": "afb8d807-4d67-6fbc-2fe0-5801784eb535",
+			"headers": "access-token: {{access-token}}\nuid: {{uid}}\nclient: {{client}}\n",
+			"url": "http://{{host}}:{{port}}/api/v1/products",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1482314544846,
+			"name": "products",
+			"description": "",
+			"collectionId": "9a7f6515-5c0c-bd71-486b-9ba6d575827f",
+			"responses": []
+		},
+		{
+			"id": "c1a02eca-32f3-bd12-3210-19ea94ce2002",
+			"headers": "access-token: {{access-token}}\nuid: {{uid}}\nclient: {{client}}\n",
+			"url": "http://{{host}}:{{port}}/api/v1/search?term=led",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1482322601182,
+			"name": "Search",
+			"description": "",
+			"collectionId": "9a7f6515-5c0c-bd71-486b-9ba6d575827f",
+			"responses": []
+		},
+		{
+			"id": "e792703d-68ab-4c8c-2cae-f6976cedeb0f",
+			"headers": "access-token: {{access-token}}\nuid: {{uid}}\nclient: {{client}}\n",
+			"url": "http://{{host}}:{{port}}/api/v1/products/1",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1482319807745,
+			"name": "Delete Product ",
+			"description": "",
+			"collectionId": "9a7f6515-5c0c-bd71-486b-9ba6d575827f",
+			"responses": []
+		},
+		{
+			"id": "ed5e2f08-ce4d-ace1-3bc9-975005ea7127",
+			"headers": "access-token: {{access-token}}\nclient: {{client}}\nuid: {{uid}}\n",
+			"url": "http://{{host}}:{{port}}/api/v1/products/1",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "product[name]",
+					"value": "Syska LED",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "product[description]",
+					"value": "LED bulb used for washroom",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "product[brand]",
+					"value": "syska",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "product[product_type]",
+					"value": "led",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "product[date_of_purchase]",
+					"value": "21-12-2016",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "product[warranty_expire_date]",
+					"value": "20-12-2017",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "product[item_id]",
+					"value": "768674342323431",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1482319841018,
+			"name": "Update Product",
+			"description": "",
+			"collectionId": "9a7f6515-5c0c-bd71-486b-9ba6d575827f",
+			"responses": []
+		}
+	]
+}
