@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   acts_as_paranoid
+  enum status: [:under_warranty, :warranty_expired]
   default_scope {order(warranty_expire_date: :asc)}
 
   validates :item_id, :name, presence: true

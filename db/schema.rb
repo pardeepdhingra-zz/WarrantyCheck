@@ -11,23 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221094010) do
+ActiveRecord::Schema.define(version: 20161222090512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "products", force: :cascade do |t|
     t.integer  "owner_id"
-    t.string   "item_id",              null: false
+    t.string   "item_id",                          null: false
     t.string   "name"
     t.text     "description"
     t.string   "product_type"
     t.string   "brand"
-    t.date     "date_of_purchase",     null: false
-    t.date     "warranty_expire_date", null: false
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.date     "date_of_purchase",                 null: false
+    t.date     "warranty_expire_date",             null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.datetime "deleted_at"
+    t.integer  "status",               default: 0
   end
 
   add_index "products", ["brand", "product_type"], name: "index_products_on_brand_and_product_type", using: :btree
