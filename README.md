@@ -10,6 +10,7 @@ Technology:
 * [Ruby on Rails] - Backend API for web apps!
 * [Postgresql] - Database to store product details and user authentication details
 * [Devise] - For user registration and Authentication
+* [Whenever] - For Scheduling Job
 
 And of course Warranty Check itself is open source with a [public repository][WarrantyCheck]
  on GitHub.
@@ -33,6 +34,11 @@ Create database and migrate table into it
 $ rake db:create
 $ rake db:migrate
 ```
+For adding Schedule jobs
+```sh
+$ whenever --load-file config/schedule.rb
+```
+
 For development environments...
 
 ```sh
