@@ -7,6 +7,16 @@ class Product < ActiveRecord::Base
   validates :item_id, uniqueness: true
   belongs_to :owner, foreign_key: :owner_id
 
+  before_save :check_warranty
+
+  def check_warranty
+    if self.warranty_expire_date.present? and self.warranty_expire_date < Date.today
+      self.status = "warranty_expired"
+    else
+      self.status = "under_warranty"
+    end
+  end
+
   def self.search(term)
     wild_card_term = "%#{term}%"
     where("name ilike :search_term
