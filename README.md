@@ -1,4 +1,4 @@
-# Warranty Check
+# Warranty Check API
 
 Warranty Check is API based on ruby on rails for storing products and checking there warranty status.
 
@@ -16,14 +16,14 @@ And of course Warranty Check itself is open source with a [public repository][Wa
 
 ### Installation
 
-WarrantyCheck requires [Ruby on Rails](http://rubyonrails.org/) 4.2 to run.
+WarrantyCheckAPI requires [Ruby on Rails](http://rubyonrails.org/) 4.2 to run.
 
 Download and extract the [latest pre-built release](https://github.com/railites/WarrantyCheck).
 
 Install the dependencies and devDependencies and start the server.
 
 ```sh
-$ cd WarrantyCheck
+$ cd WarrantyCheckAPI
 $ bundle install
 ```
 
