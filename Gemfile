@@ -1,3 +1,4 @@
+ruby "2.3.1"
 source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -25,3 +26,4 @@ gem 'omniauth'
 gem 'paranoia', '~> 2.2'
 gem 'will_paginate', '~> 3.1.0'
 gem 'whenever', require: false
+gem 'rails_12factor', group: :production
