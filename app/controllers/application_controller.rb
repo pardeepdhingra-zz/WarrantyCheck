@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :null_session, if: Proc.new {|c| c.request.format.json? }
   include DeviseTokenAuth::Concerns::SetUserByToken
-  protect_from_forgery with: :null_session
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
     render json: {error: exception.message}, status: 404
