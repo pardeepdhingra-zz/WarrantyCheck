@@ -26,4 +26,5 @@ gem 'omniauth'
 gem 'paranoia', '~> 2.2'
 gem 'will_paginate', '~> 3.1.0'
 gem 'whenever', require: false
+gem 'carrierwave', '~> 1.0'
 gem 'rails_12factor', group: :production

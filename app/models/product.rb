@@ -1,5 +1,7 @@
 class Product < ActiveRecord::Base
   acts_as_paranoid
+  mount_uploader :invoice, InvoiceUploader
+
   enum status: [:under_warranty, :warranty_expired]
   enum warranty_type: [:manufacturer, :seller]
   default_scope {order(warranty_expire_date: :asc)}

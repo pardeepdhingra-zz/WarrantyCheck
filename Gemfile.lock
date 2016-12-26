@@ -42,6 +42,10 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (9.0.6)
+    carrierwave (1.0.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     chronic (0.10.2)
     concurrent-ruby (1.0.3)
     debug_inspector (0.0.2)
@@ -150,6 +154,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  carrierwave (~> 1.0)
   devise
   devise_token_auth
   jbuilder (~> 2.0)
