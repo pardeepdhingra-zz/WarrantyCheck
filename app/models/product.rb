@@ -11,6 +11,7 @@ class Product < ActiveRecord::Base
 
   belongs_to :owner, foreign_key: :owner_id
   belongs_to :category, foreign_key: :category_id
+  belongs_to :brand, foreign_key: :brand_id
   before_save :check_warranty
 
   def check_warranty
