@@ -27,8 +27,8 @@ module Api
       def search
         if params[:term].present? && !params[:term].blank?
           render json: Product.search(params[:term])
-        elsif params[:item_id].present?  && !params[:item_id].blank?
-          render json: Product.search_by_item_id(params[:item_id])
+        elsif params[:barcode].present?  && !params[:barcode].blank?
+          render json: Product.search_by_barcode(params[:barcode])
         end
       end
 
@@ -39,7 +39,7 @@ module Api
       end
 
       def product_params
-        params.require(:product).permit(:item_id, :name, :description, :product_type, :brand, :date_of_purchase, :warranty_expire_date)
+        params.require(:product).permit(:barcode, :name, :description, :warranty_type, :brand_id, :purchase_date, :warranty_expire_date, :category_id)
       end
     end
   end
