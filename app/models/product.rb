@@ -1,12 +1,16 @@
 class Product < ActiveRecord::Base
   acts_as_paranoid
   enum status: [:under_warranty, :warranty_expired]
+  enum warranty_type: [:manufacturer, :seller]
   default_scope {order(warranty_expire_date: :asc)}
 
-  validates :item_id, :name, presence: true
-  validates :item_id, uniqueness: true
+  validates :barcode, :name, presence: true
+  validates :barcode, uniqueness: true
   validates :status, inclusion: { in: statuses.keys }
+  validates :warranty_type, inclusion: { in: warranty_types.keys }
+
   belongs_to :owner, foreign_key: :owner_id
+  belongs_to :category, foreign_key: :category_id
   before_save :check_warranty
 
   def check_warranty

@@ -11,31 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222090512) do
+ActiveRecord::Schema.define(version: 20161226092430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "products", force: :cascade do |t|
-    t.integer  "owner_id"
-    t.string   "item_id",                          null: false
+  create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.text     "description"
-    t.string   "product_type"
-    t.string   "brand"
-    t.date     "date_of_purchase",                 null: false
-    t.date     "warranty_expire_date",             null: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.datetime "deleted_at"
-    t.integer  "status",               default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "products", ["brand", "product_type"], name: "index_products_on_brand_and_product_type", using: :btree
-  add_index "products", ["deleted_at"], name: "index_products_on_deleted_at", using: :btree
-  add_index "products", ["item_id"], name: "index_products_on_item_id", using: :btree
+  create_table "products", force: :cascade do |t|
+    t.integer  "owner_id"
+    t.string   "name"
+    t.text     "description"
+    t.string   "brand"
+    t.date     "warranty_expire_date"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "barcode"
+    t.integer  "warranty_type"
+    t.date     "purchase_date"
+    t.integer  "category_id"
+  end
+
+  add_index "products", ["barcode"], name: "index_products_on_barcode", using: :btree
   add_index "products", ["name", "brand"], name: "index_products_on_name_and_brand", using: :btree
-  add_index "products", ["name", "product_type"], name: "index_products_on_name_and_product_type", using: :btree
+  add_index "products", ["name", "warranty_type"], name: "index_products_on_name_and_warranty_type", using: :btree
   add_index "products", ["name"], name: "index_products_on_name", using: :btree
 
   create_table "users", force: :cascade do |t|
