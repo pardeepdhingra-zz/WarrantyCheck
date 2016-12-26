@@ -39,7 +39,10 @@ module Api
       end
 
       def product_params
-        params.require(:product).permit(:barcode, :name, :description, :warranty_type, :brand_id, :purchase_date, :warranty_expire_date, :category_id)
+        params.require(:product).permit(:barcode, :name, :description,
+                                        :warranty_type, :brand_id, :purchase_date,
+                                        :warranty_expire_date, :category_id
+                                        :seller_name, :tin_number)
       end
     end
   end
