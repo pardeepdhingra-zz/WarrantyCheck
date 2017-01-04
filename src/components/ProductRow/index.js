@@ -1,11 +1,6 @@
 import React,{ Component } from 'react';
-import { Row, Col } from 'react-bootstrap';
 
 class ProductRow extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		return (
 				<tr>
