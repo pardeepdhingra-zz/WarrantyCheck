@@ -1,0 +1,40 @@
+body {
+  padding-top: 100px;
+  padding-bottom: 40px;
+  background-color: #1c5389 !important;
+  color: #fff !important;
+}
+
+.form-tab {
+  max-width: 350px;
+  padding: 15px;
+  margin: 0px auto;
+}
+
+.product-form {
+  max-width: 450px;
+  padding: 25px;
+  margin: 0px auto;
+}
+
+.form-tab input{
+  margin-bottom:  10px;
+}
+
+.btn-orange {
+  background-color: #ff6900 !important;
+  color: #fff !important;
+  border-color: #ff6900 !important;
+  width: 100%;
+}
+
+.btn-orange.focus, .btn-orange:focus, .btn-orange:hover {
+  color: #fff !important;
+  background-color: #ff700a !important;
+  border-color: #ff700a !important;
+  width: 100%;
+}
+
+#login-registration .nav.nav-tabs li{
+  width: 50%;
+}
