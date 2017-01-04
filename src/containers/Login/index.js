@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { FormControl, Button } from 'react-bootstrap'
+import { Link } from 'react-router'
 
 class Login extends Component {
   constructor(props){
@@ -35,6 +36,7 @@ class Login extends Component {
             Login <i className="fa fa-angle-double-right"></i>
           </Button>
         </form>
+        Don't have Account? <Link to="/registration">Create Account?</Link>
       </div>
     )
   }

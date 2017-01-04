@@ -1,12 +1,8 @@
 import React,{ Component } from 'react'
 import { Row, Col } from 'react-bootstrap'
-import ProductRow from 'components/ProductRow'
+import ProductRow from '../ProductRow'
 
 class ProductsTable extends Component {
-	constructor(props) {
-		super(props)
-	}
-
 	render() {
 		return (
 			<Row className="res-table form-inner">

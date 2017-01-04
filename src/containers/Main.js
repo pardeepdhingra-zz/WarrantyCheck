@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { Tabs, Tab } from 'react-bootstrap';
-import Navbar from './Navbar'
-import Login from './Login'
-import Registration from './Registration'
+import MainNavbar from './MainNavbar'
 
 class Main extends Component {
   constructor(props) {
@@ -17,16 +14,9 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <MainNavbar />
         <div className="container">
-          <Tabs id="login-registration" className="form-tab" activeKey={this.state.key} onSelect={this.handleSelect.bind(this)}>
-            <Tab title="Login" eventKey={1}>
-              <Login />
-            </Tab>
-            <Tab title="Registration" eventKey={2}>
-              <Registration />
-            </Tab>
-          </Tabs>
+          {this.props.children}
         </div>
       </div>
     );
