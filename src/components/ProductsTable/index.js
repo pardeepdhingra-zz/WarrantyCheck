@@ -1,54 +1,49 @@
-import React,{ Component } from 'react'
+import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import ProductRow from '../ProductRow'
 
-class ProductsTable extends Component {
-	render() {
-		return (
-			<Row className="res-table form-inner">
-				<Col sm={12} className="no-padding">
-					<table className="table table-striped reagents-table">
-						<thead>
-							<tr>
-								<th width="18%">
-									CATEGORY
-								</th>
-								<th width="15%">
-									BARCODE
-								</th>
-                <th width="15%">
-									MANUFACTURER
-								</th>
-								<th width="15%">
-									SELLER
-								</th>
-								<th width="13%">
-									SELLER_NAME
-								</th>
-								<th width="9%">
-									TIN_SERVICE_TAG
-								</th>
-								<th width="9%" className="text-center">
-									PURCHASE_DATE
-								</th>
-                <th width="9%" className="text-center">
-									BRAND
-								</th>
-                <th width="9%" className="text-center">
-									MODEL_NAME
-								</th>
-                <th width="9%" className="text-center">
-									INVOICE
-								</th>
-							</tr>
-						</thead>
-						<tbody>
-							<ProductRow />
-						</tbody>
-					</table>
-				</Col>
-			</Row>
-		);
-	}
+const ProductsTable = ({products}) => {
+	return (
+		<Row className="res-table form-inner">
+			<Col sm={12} className="no-padding">
+				<Row>
+					<Col sm={1}>
+						CATEGORY
+					</Col>
+					<Col sm={1}>
+						BARCODE
+					</Col>
+          <Col sm={1}>
+						MANUFACTURER
+					</Col>
+					<Col sm={1}>
+						SELLER
+					</Col>
+					<Col sm={1}>
+						SELLER_NAME
+					</Col>
+					<Col sm={1}>
+						TIN_SERVICE_TAG
+					</Col>
+					<Col sm={1}>
+						PURCHASE_DATE
+					</Col>
+          <Col sm={1}>
+						BRAND
+					</Col>
+          <Col sm={1}>
+						MODEL_NAME
+					</Col>
+          <Col sm={1}>
+						INVOICE
+					</Col>
+				</Row>
+				{products.map((product, i) =>
+						<ProductRow product={product} key={i} />
+				)}
+			</Col>
+		</Row>
+	)
 }
+
 export default ProductsTable

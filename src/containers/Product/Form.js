@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { FormGroup, InputGroup, FormControl, ControlLabel, Button } from 'react-bootstrap'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
-import FaIcon from 'components/FaIcon'
+import FaIcon from '../../components/FaIcon'
 
 import 'react-datepicker/dist/react-datepicker.css'
 

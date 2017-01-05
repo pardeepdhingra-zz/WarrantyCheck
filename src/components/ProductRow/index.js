@@ -1,41 +1,40 @@
-import React,{ Component } from 'react';
+import React from 'react'
+import { Row, Col } from 'react-bootstrap'
 
-class ProductRow extends Component {
-	render() {
+const ProductRow = ({product}) => {
 		return (
-				<tr>
-					<td width="18%">
-
-					</td>
-					<td width="15%">
-
-					</td>
-          <td width="15%">
-
-					</td>
-					<td width="15%">
-
-					</td>
-					<td width="13%">
-
-					</td>
-					<td width="9%">
-
-					</td>
-					<td width="9%" className="text-center">
-
-					</td>
-          <td width="9%" className="text-center">
-
-					</td>
-          <td width="9%" className="text-center">
-
-					</td>
-          <td width="9%" className="text-center">
-
-					</td>
-				</tr>
-		);
-	}
+				<Row>
+					<Col sm={1}>
+						{product.category}
+					</Col>
+					<Col sm={1}>
+						{product.barcode}
+					</Col>
+          <Col sm={1}>
+						{product.manufacturer}
+					</Col>
+					<Col sm={1}>
+						{product.seller_id}
+					</Col>
+					<Col sm={1}>
+						{product.seller_name}
+					</Col>
+					<Col sm={1}>
+						{product.tin_service_tag}
+					</Col>
+					<Col sm={1}>
+						{product.purchase_date}
+					</Col>
+          <Col sm={1}>
+						{product.brand}
+					</Col>
+          <Col sm={1}>
+						{product.model_name}
+					</Col>
+          <Col sm={1}>
+					</Col>
+				</Row>
+		)
 }
+
 export default ProductRow
