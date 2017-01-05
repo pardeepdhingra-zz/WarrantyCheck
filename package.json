@@ -4,7 +4,8 @@
   "author": "Pardeep Dhingra",
   "license": "MIT",
   "devDependencies": {
-    "react-scripts": "0.6.1"
+    "react-scripts": "0.6.1",
+    "url": "^0.11.0"
   },
   "dependencies": {
     "graphql": "^0.8.2",

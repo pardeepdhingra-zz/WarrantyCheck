@@ -13,11 +13,8 @@ class Products extends Component {
   }
 
   componentWillMount() {
-    var query = 'query{ products {id, name, category, brand } }'
-    var that = this;
-    graphql(Schema, query).then(function(result){
-      that.setState({products: result.data.products})
-    })
+    var query = 'query{ products {id, name, category, brand} }'
+    graphql(Schema, query).then(result => this.setState({products: result.data.products}))
   }
 
   render() {
