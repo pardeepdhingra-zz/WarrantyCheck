@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Navbar, Nav, NavItem } from 'react-bootstrap'
-import { Link } from 'react-router'
+import { LinkContainer } from 'react-router-bootstrap';
 
 import './mainNavbar.css'
 
@@ -16,7 +16,9 @@ class MainNavbar extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem><Link to="/login">Login</Link></NavItem>
+            <LinkContainer to="/login">
+              <NavItem eventKey={1}>Login</NavItem>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

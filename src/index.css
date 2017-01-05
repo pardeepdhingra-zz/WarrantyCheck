@@ -3,19 +3,13 @@ body {
   color: #fff !important;
 }
 
-.form-tab {
-  max-width: 350px;
-  padding: 15px;
-  margin: 0px auto;
-}
-
 .product-form {
   max-width: 450px;
   padding: 25px;
   margin: 0px auto;
 }
 
-.form-tab input{
+form input {
   margin-bottom:  10px;
 }
 
@@ -31,8 +25,4 @@ body {
   background-color: #ff700a !important;
   border-color: #ff700a !important;
   width: 100%;
-}
-
-#login-registration .nav.nav-tabs li{
-  width: 50%;
 }
