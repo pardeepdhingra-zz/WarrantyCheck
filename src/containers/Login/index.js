@@ -8,8 +8,8 @@ class Login extends Component {
     this.handleSubmit = this._handleSubmit.bind(this)
   }
 
-  _handleSubmit(e){
-    alert('Form submitted' + this.state.email + " : " + this.state.password)
+  _handleSubmit(event) {
+    event.preventDefault();
   }
 
   render() {
