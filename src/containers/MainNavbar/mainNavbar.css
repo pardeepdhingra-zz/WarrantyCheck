@@ -1,0 +1,14 @@
+nav.navbar {
+  background-color: #13395d !important;
+  border: none;
+}
+
+nav.navbar .navbar-brand {
+  color: #fff !important;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:focus,
+.navbar-inverse .navbar-nav > .active > a:hover {
+  background-color: #c1c1c1 !important;
+  color: #333333 !important;
+}
