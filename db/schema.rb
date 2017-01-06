@@ -11,14 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161226141757) do
+ActiveRecord::Schema.define(version: 20170105102917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "brands", force: :cascade do |t|
     t.string   "name",       null: false
-    t.string   "string",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,8 +42,10 @@ ActiveRecord::Schema.define(version: 20161226141757) do
     t.text     "description"
     t.string   "brand"
     t.date     "warranty_expire_date"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.datetime "deleted_at"
+    t.integer  "status",               default: 0
     t.string   "barcode"
     t.integer  "warranty_type"
     t.date     "purchase_date"
@@ -56,9 +57,16 @@ ActiveRecord::Schema.define(version: 20161226141757) do
   end
 
   add_index "products", ["barcode"], name: "index_products_on_barcode", using: :btree
+  add_index "products", ["deleted_at"], name: "index_products_on_deleted_at", using: :btree
   add_index "products", ["name", "brand"], name: "index_products_on_name_and_brand", using: :btree
   add_index "products", ["name", "warranty_type"], name: "index_products_on_name_and_warranty_type", using: :btree
   add_index "products", ["name"], name: "index_products_on_name", using: :btree
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
@@ -77,17 +85,18 @@ ActiveRecord::Schema.define(version: 20161226141757) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.string   "name"
-    t.string   "nickname"
-    t.string   "image"
     t.string   "email"
     t.json     "tokens"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "role_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
 
+  add_foreign_key "users", "roles"
 end

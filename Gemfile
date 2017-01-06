@@ -16,13 +16,12 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds upom development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 
 gem 'devise'
 gem 'devise_token_auth'
-gem 'omniauth'
 gem 'paranoia', '~> 2.2'
 gem 'will_paginate', '~> 3.1.0'
 gem 'whenever', require: false

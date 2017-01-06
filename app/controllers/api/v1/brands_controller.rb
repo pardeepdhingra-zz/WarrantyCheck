@@ -4,12 +4,12 @@ module Api
       before_action :find_category, only: [:index]
 
       def index
-        render json: category.brands
+        render json: @category.brands
       end
 
       private
       def find_category
-        Category.find(params[:category_id])
+        @category = Category.find(params[:category_id])
       end
     end
   end
