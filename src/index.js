@@ -7,6 +7,7 @@ import Login from './containers/Login'
 import Registration from './containers/Registration'
 import Products from './containers/Products'
 import NewProduct from './containers/Product/New'
+import NotFoundPage from './components/NotFoundPage'
 import './index.css'
 
 ReactDOM.render(
@@ -18,6 +19,7 @@ ReactDOM.render(
       <Route path="products" component={Products}>
         <Route path="new" component={NewProduct} />
       </Route>
+      <Route path="*" component={NotFoundPage} />
     </Route>
   </Router>,
   document.getElementById('root')

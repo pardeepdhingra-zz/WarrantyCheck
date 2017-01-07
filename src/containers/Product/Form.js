@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import { FormGroup, InputGroup, FormControl, ControlLabel, Button } from 'react-bootstrap'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
+import {graphql} from 'graphql'
+import Schema from '../../graphql/Schema'
 import FaIcon from '../../components/FaIcon'
+import SelectBox from '../../components/SelectBox'
 
 import 'react-datepicker/dist/react-datepicker.css'
 
@@ -19,12 +22,23 @@ class Form extends Component {
       purchase_date: moment(),
       seller: '',
       seller_name: '',
-      tin: ''
+      tin: '',
+      categories: [],
+      brands: []
     }
+  }
+
+  componentWillMount(){
+    let query = 'query{ categories {id, name} }'
+    graphql(Schema, query).then(result => this.setState({categories: result.data.categories}))
   }
 
   _handleSubmit(e){
 
+  }
+
+  setCategory(category_id) {
+    console.log(category_id)
   }
 
   render() {
@@ -32,10 +46,10 @@ class Form extends Component {
 				<form method="post" onSubmit={this.handleSubmit} className="product-form">
           <FormGroup controlId="categoryId">
             <ControlLabel>Category</ControlLabel>
-            <FormControl componentClass="Select" placeholder="Category">
-              <option value="select">select</option>
-              <option value="#other">Other</option>
-            </FormControl>
+            <SelectBox
+              data={this.state.categories}
+              action={e => this.setCategory(e)}
+            />
           </FormGroup>
 
           <FormGroup controlId="barcode">
@@ -71,10 +85,7 @@ class Form extends Component {
 
           <FormGroup controlId="brand">
             <ControlLabel>Brand</ControlLabel>
-            <FormControl componentClass="Select" placeholder="Brand">
-              <option value="select">select</option>
-              <option value="#other">Other</option>
-            </FormControl>
+            <SelectBox data={this.state.brands} />
           </FormGroup>
 
           <FormGroup controlId="model_name">
