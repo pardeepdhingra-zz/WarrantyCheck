@@ -3,12 +3,14 @@ import {
   GraphQLSchema,
   GraphQLString,
   GraphQLList,
-  GraphQLInt
+  GraphQLInt,
+  GraphQLNonNull
 } from 'graphql'
 
 import {
-  getListOfObjects
-} from './testServices'
+  getListOfObjects,
+  getListOfObjectsFromAnObject
+} from './services'
 
 let ProductType = new GraphQLObjectType({
   name: 'Product',
@@ -30,6 +32,15 @@ let CategoryType = new GraphQLObjectType({
   }
 });
 
+let BrandType = new GraphQLObjectType({
+  name: 'Brand',
+  description: "This refers to brand",
+  fields: {
+    id: {type: GraphQLInt},
+    name: {type: GraphQLString}
+  }
+});
+
 
 var Root = new GraphQLObjectType({
   name: 'Root',
@@ -41,7 +52,15 @@ var Root = new GraphQLObjectType({
     categories: {
       type: new GraphQLList(CategoryType),
       resolve: obj => getListOfObjects(null, 'categories')
-    }
+    },
+    brands: {
+      type: new GraphQLList(BrandType),
+      args: {
+        category_id: {type: new GraphQLNonNull(GraphQLInt)}
+      },
+      resolve: (obj, {category_id}) =>
+        getListOfObjectsFromAnObject(null, 'brands', 'categories', category_id)
+    },
   }
 });
 
